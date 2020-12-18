@@ -102,7 +102,7 @@ button.blue{
 }
 
 main {
-    background: lightblue;
+    background: #e8e8e8;
     display: grid;
     grid: auto / repeat(3 , 1fr);
     grid-template-areas: "setter getter getter";
