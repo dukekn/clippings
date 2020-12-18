@@ -5,7 +5,6 @@ namespace App\Core\Factory;
 
 abstract class DataFactory
 {
-    protected string $currency_output;
 
     public static function getData(array $file): array
     {
@@ -24,7 +23,7 @@ abstract class DataFactory
 
     public static function setException($ex)
     {
-        print("<span><b>Exception:</b> " . $ex->getMessage()."</span>");
+        print('<span class="exception"><b>Exception:</b> ' . $ex->getMessage()."</span>");
     }
 
     public static function getCurrencie(array $post): array

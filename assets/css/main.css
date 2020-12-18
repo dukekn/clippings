@@ -147,3 +147,10 @@ span.error {
     display: block;
     font-size: smaller;
 }
+span.exception {
+    background-color: darkorange;
+    padding: 5px;
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+}
