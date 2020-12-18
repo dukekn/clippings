@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+html {
+    color: #222;
+    font-size: 100%;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+}
+
+body {
+    padding: inherit;
+    margin: inherit;
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+h1,h2,h3
+{
+    margin: 0;
+    padding: 0;
+}
+h3 {
+     font-size: medium;
+ }
+
+input[type=text],
+input[type=number]{
+    height: 30px;
+    padding: 5px;
+    border-radius: 6px;
+    width: 100%;
+    border-color: lightslategray;
+    border: 2px solid lightslategray;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+fieldset{
+    border: none;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: small;
+}
+thead {
+    font-weight: bold;
+}
+td{
+    width: 100px;
+}
+.table_client td:first-of-type{
+    width: 20px;
+}
+td.total {
+    font-weight: 600;
+    background: lightgray;
+}
+button {
+    background: none;
+    outline: none;
+    border: 1px solid transparent;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button.red{
+    background: crimson;
+}
+button.green{
+    background: palegreen;
+}
+button.blue{
+    background: lightskyblue;
+}
+.invalid {
+    background-color: #ff000036;
+    color: red;
+}
+.hidden{
+    display: none!important;
+}
+
+main {
+    background: lightblue;
+    display: grid;
+    grid: auto / repeat(3 , 1fr);
+    grid-template-areas: "setter getter getter";
+    grid-gap: 20px;
+    padding: 20px;
+    height:  -webkit-fill-available;
+}
+.w100{
+    width: 100%;
+    max-width: 100%;
+}
+section[class^=container_] {
+    background: white;
+    padding: 20px;
+}
+.container_setter{
+    grid-area: setter;
+}
+.container_getter{
+    grid-area: getter;
+}
+section.currency_pair {
+    background: aliceblue;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 6px;
+    font-size: small;
+    max-height: 400px;
+    overflow: auto;
+}
+tr.error input{
+    color: indianred;
+    border-color:indianred;
+}
+
+span.error {
+    background: #dc143c;
+    padding: 5px;
+    border-radius: 6px;
+    color: white;
+    width: 100%;
+    display: block;
+    font-size: smaller;
+}
