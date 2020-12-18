@@ -171,12 +171,12 @@
             });
         } else {
             var file = $('input#file_uploader')[0].files[0],
-                currency_output = $('input#currency_output').val(),
-                currency_main = $('input#currency_main').val(),
+                currency_output = $('input#currency_output').val().replace(' ', ''),
+                currency_main = $('input#currency_main').val().replace(' ', ''),
                 data = new FormData();
 
             $('input[name="pair[\'code\']"]').each(function () {
-                data.append('pair_code', $(this).val());
+                data.append('pair_code', $(this).val().replace(' ', ''));
             });
             data.append('pair_code', JSON.stringify(data.getAll('pair_code')))
 

@@ -23,7 +23,7 @@ class DataHandler
         $headers = array_values($this->file_data ['Customer'][0]);
         unset($this->file_data ['Customer']);
         $customers_count = count($this->file_data);
-
+        $total_grand = 0;
         for($i = 0; $i < $customers_count; $i++)
         {
             $customer = $this->file_data[array_keys($this->file_data)[$i ]];
@@ -36,7 +36,7 @@ class DataHandler
             {
                 $html .= '<td>'. $headers[$a] .'</td>';
             }
-            $html .= '<td></td></tr></thead><tbody>';
+            $html .= '</tr></thead><tbody>';
 
             $customer_total = 0;
             foreach ($customer as $key => $document) {
@@ -82,24 +82,26 @@ class DataHandler
                         if($b == (count($values ) - 1))
                         {
 //                            var_dump(DataFactory::exchange($this->currency_data , $amount , $currency));
-                            $html .= '<td>'. $symbol.' '.$amount .'</td>';
+                            $html .= '<td>'. $symbol.' '.$amount .' '.$this->currency_data['output'].'</td>';
                             $customer_total = ($type == 2)? $customer_total - $amount : $customer_total + $amount;
                         }else{
                             $html .= '<td>'. $values[$b] .'</td>';
                         }
 
                     }
-                    $html .= ' <td>'.$this->currency_data['output'].'</td></tr>';
 
                     if($key == (count($customer) - 1) )
                     {
-                        $html .= ' <tr><td ></td><td ></td><td ></td><td ></td><td ></td><td ></td><td ></td><td class="total">TOTAL</td><td class="total">'.$customer_total.'</td></tr>';
+                        $total_grand +=$customer_total;
+                        $html .= ' <tr><td ></td><td ></td><td ></td><td ></td><td ></td><td ></td><td class="total_sub">TOTAL</td><td class="total_sub">'.$customer_total.'  '.$this->currency_data['output'].'</td></tr>';
                     }
             }
             $html .= '</tbody></table>';
             print($html);
-        } // end for
+        } // end for each customer
 
+        $html_grand = '<table class="totals_grand"><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total">GRAND TOTAL</td><td class="total">'.$total_grand.'  '.$this->currency_data['output'].'</td></tr></table>';
+        print($html_grand);
 
     }
 }

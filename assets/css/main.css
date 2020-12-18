@@ -69,7 +69,11 @@ td{
 }
 td.total {
     font-weight: 600;
-    background: lightgray;
+    background: #cddc397a;
+}
+td.total_sub {
+    font-weight: 600;
+    background: #eaeaea;
 }
 button {
     background: none;
