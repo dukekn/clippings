@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Invoicing command challange</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -27,7 +27,6 @@
                 <label for="currency_output">eg.: GBP</label>
                 <input id="currency_output" type="text" value="" required>
             </fieldset>
-            <!--            <button> next ></button>-->
             <section class="currency_pair">
                 <table id="currency_table">
                     <thead>
@@ -52,7 +51,6 @@
                     </tr>
                     </tbody>
                 </table>
-
             </section>
             <button id="currency_create" class="blue w100"> + add</button>
             <br>
@@ -60,19 +58,13 @@
         </section>
         <button id="calculate_submit" class="green w100">Calculate</button>
     </section>
-
     <section class="container_getter">
         <fieldset class="filter">
             <input id="filter" type="text" onkeyup="filter(this)" placeholder="Start typing customer name" value="">
         </fieldset>
-        <section class="container_result">
-
-        </section>
-
+        <section class="container_result"></section>
     </section>
-
 </main>
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -191,15 +183,11 @@
 
             fetch('getData.php', {
                 method: 'POST',
-                body: data // <-- Post parameters
+                body: data
             })
                 .then((response) => response.text())
                 .then((responseText) => {
-                    console.log(responseText);
                     $('.container_result').html(responseText);
-
-                    var docs_parnt = $('table.table_client td').attr('data-parent');
-                    console.log(docs_parnt.length)
                 })
                 .catch((error) => {
                     console.error(error);
